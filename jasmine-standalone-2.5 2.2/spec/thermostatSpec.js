@@ -14,4 +14,10 @@ it("should increase temperature by 1", function(){
   expect(thermostat.temperature).toEqual(21);
 });
 
+it("should decrease temperature by 1", function(){
+  thermostat.decreaseTemp();
+  expect(thermostat.temperature).toEqual(19);
+});
+
+
 });
