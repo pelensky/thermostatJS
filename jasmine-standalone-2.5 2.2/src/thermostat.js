@@ -3,9 +3,16 @@ function Thermostat() {
 };
 
 Thermostat.prototype.increaseTemp = function(){
-  this.temperature += 1;
+  this.temperature += 5;
 };
 
 Thermostat.prototype.decreaseTemp = function() {
-  this.temperature -= 1;
+  if (this.temperature > 10) {
+    this.temperature -= 5;
+  } else {
+    throw new Error('Minimum temperature is 10 degrees')
+  }
+
+
+
 };
