@@ -22,13 +22,11 @@ it("should decrease temperature by the amount specified", function(){
 it("should have a minimum temperature of 10 degrees", function(){
   thermostat.decreaseTemp(11)
   console.log(thermostat.temperature)
-  // expect(function(){ thermostat.decreaseTemp(11);}).toThrowError('Minimum temperature is 10 degrees');
   expect(thermostat.temperature).toEqual(10);
 });
 
-// it("should have a maximum temperature of 32 degrees if power save is off", function(){
-//   thermostat.increaseTemp();
-//   thermostat.increaseTemp();
-//   expect(function(){thermostat.increaseTemp();}).toThrowError('Maximum temperature is 32 degrees')
-// });
+it("should have a maximum temperature of 32 degrees if power save is off", function(){
+  thermostat.increaseTemp(243);
+  expect(thermostat.temperature).toEqual(32);
+});
 });
