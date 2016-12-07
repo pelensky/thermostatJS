@@ -45,7 +45,7 @@ Thermostat.prototype.energy = function(){
   } else if (this.temperature >25) {
       this.energyUsage = "high-usage";
       return this.energyUsage;
-  } else {
+  } else { 
     return this.energyUsage;
   }
 };
