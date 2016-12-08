@@ -4,6 +4,8 @@ var Thermostat = function () {
     this.maximumTemperature = 25;
     this.MINIMUM_TEMPERATURE = 10;
     this.MAXIMUM_TEMPERATURE_PSM_OFF = 32;
+    this.LOW_USAGE = 18
+    this.HIGH_USAGE = 25
 };
 
 Thermostat.prototype.getTemperature = function () {
@@ -34,7 +36,7 @@ Thermostat.prototype.reset = function () {
 };
 
 Thermostat.prototype.energyUsage = function () {
-  if (this.temperature < 18) return 'Low usage';
-  if (this.temperature >= 18 &&  this.temperature < 25)  return 'Medium usage';
-  if (this.temperature >= 25)  return 'High usage';
+  if (this.temperature < this.LOW_USAGE) return 'Low usage';
+  if (this.temperature >= this.LOW_USAGE &&  this.temperature < this.HIGH_USAGE)  return 'Medium usage';
+  if (this.temperature >= this.HIGH_USAGE)  return 'High usage';
 };
