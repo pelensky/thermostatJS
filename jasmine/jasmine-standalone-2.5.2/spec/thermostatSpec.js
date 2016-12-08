@@ -53,4 +53,10 @@ describe("Thermostat", function () {
   it('maximum temperature should be 25 by default - power saving mode', function (){
     expect(thermostat.maximumTemperature).toEqual(25);
   });
+
+  it('resets the temperature to 20', function () {
+    thermostat.increaseTemperature();
+    thermostat.reset();
+    expect(thermostat.getTemperature()).toEqual(20);
+  });
 });
