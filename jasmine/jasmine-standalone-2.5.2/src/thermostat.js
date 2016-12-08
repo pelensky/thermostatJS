@@ -8,7 +8,7 @@ Thermostat.prototype.getTemperature = function () {
 };
 
 Thermostat.prototype.increaseTemperature = function () {
-  if (this.temperature > this.maximumTemperature) throw "Maximum temperature is 25 degrees in Power Saving Mode. Cannot go above."
+  if (this.temperature > this.maximumTemperature) throw `Maximum temperature is ${this.maximumTemperature} degrees. Cannot go above.`
   this.temperature += 1;
 };
 
@@ -21,6 +21,7 @@ Thermostat.prototype.powerSaving = function (state) {
   if (state === "on") {
     return this.maximumTemperature;
   } else {
-    this.temperature
+    this.maximumTemperature = 32;
+    return this.maximumTemperature;
   }
 };
