@@ -2,6 +2,7 @@
 <html>
 <head>
 <title> Thermostat </title>
+<script src="jquery.js"></script>
 </head>
 <body>
   <h1 id="temperature"></h1><br>
@@ -11,8 +12,14 @@
   <input type='button' name="decrease" value="-"><br>
   <input type='button' name='reset' value="Reset Temperature"><br>
   <input type="button" name="powerSave" value="Power Saving Mode">
-  <script src="/src/thermostat.js"></script>
+  <script src="src/thermostat.js"></script>
+  <script src="src/interactive.js"></script>
+  <script src="jquery.js"></script>
+  <script>
+    // $(document).ready(function() {
+    //   $("#temperature").html("Is this working?");
+    //
+    // });
+  </script>
 </body>
-
-
 </html>
