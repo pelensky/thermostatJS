@@ -23,11 +23,19 @@ describe("Thermostat", function () {
     do {
       thermostat.decreaseTemperature();
       i++;
-      console.log(thermostat.getTemperature());
     }
-    while (i < 11);
-    alert(thermostat.getTemperature());
+    while (i < 10);
     expect(function () {thermostat.decreaseTemperature()}).toThrow("Mininum temperature is 10 degrees. Cannot go below.")
   });
 
+  it('if power saving mode is on the maximum temperature is 25 degrees', function () {
+    thermostat.powerSaving('on');
+    var i = 0;
+    do {
+      thermostat.increaseTemperature();
+      i++;
+    }
+    while (i < 5);
+    expect()
+  });
 });
