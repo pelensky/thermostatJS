@@ -29,7 +29,6 @@ Thermostat.prototype.powerSaving = function (state) {
   } else {
     this.maximumTemperature = this.MAXIMUM_TEMPERATURE_PSM_OFF;
   }
-  return state;
 };
 
 Thermostat.prototype.reset = function () {
