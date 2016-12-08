@@ -24,11 +24,11 @@ Thermostat.prototype.decreaseTemperature = function () {
 
 Thermostat.prototype.powerSaving = function (state) {
   if (state === "on") {
-    return this.maximumTemperature;
+    this.maximumTemperature;
   } else {
     this.maximumTemperature = this.MAXIMUM_TEMPERATURE_PSM_OFF;
-    return this.maximumTemperature;
   }
+  console.log(state);
 };
 
 Thermostat.prototype.reset = function () {
