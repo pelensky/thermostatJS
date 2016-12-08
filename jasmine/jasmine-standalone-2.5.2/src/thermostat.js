@@ -4,6 +4,7 @@ var Thermostat = function () {
     this.maximumTemperature = 25;
     this.MINIMUM_TEMPERATURE = 10;
     this.MAXIMUM_TEMPERATURE_PSM_OFF = 32;
+    this.MAXIMUM_TEMPERATURE_PSM_ON = 25;
     this.LOW_USAGE = 18
     this.HIGH_USAGE = 25
 };
@@ -24,11 +25,11 @@ Thermostat.prototype.decreaseTemperature = function () {
 
 Thermostat.prototype.powerSaving = function (state) {
   if (state === "on") {
-    this.maximumTemperature;
+    this.maximumTemperature = this.MAXIMUM_TEMPERATURE_PSM_ON;
   } else {
     this.maximumTemperature = this.MAXIMUM_TEMPERATURE_PSM_OFF;
   }
-  console.log(state);
+  return state;
 };
 
 Thermostat.prototype.reset = function () {
