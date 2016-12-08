@@ -1,4 +1,18 @@
 $(document).ready(function() {
+  var jsonData;
+  $.ajax ({
+    url: 'http://api.openweathermap.org/data/2.5/forecast/city?id=2643743&APPID={6d4bbb8a1db58900a6e66af4b3cdacca}',
+    jsonp: "callback",
+    dataType: "jsnop",
+    data: {
+      q: 'city',
+      format: "json"
+    },
+    success: function(response) {
+      jsonData = response;
+      console.log(response);
+    }
+  });
 
   var thermostat = new Thermostat();
 
