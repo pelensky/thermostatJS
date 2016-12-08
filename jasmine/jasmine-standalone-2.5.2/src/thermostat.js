@@ -14,7 +14,7 @@ Thermostat.prototype.getTemperature = function () {
 };
 
 Thermostat.prototype.increaseTemperature = function () {
-  if (this.temperature > this.maximumTemperature) throw `Maximum temperature is ${this.maximumTemperature} degrees. Cannot go above.`
+  if (this.temperature >= this.maximumTemperature) throw `Maximum temperature is ${this.maximumTemperature} degrees. Cannot go above.`
   this.temperature += 1;
 };
 

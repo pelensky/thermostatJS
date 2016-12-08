@@ -2,8 +2,6 @@ $(document).ready(function() {
 
   var thermostat = new Thermostat();
 
-  $("#temperature").text(thermostat.getTemperature());
-
   $("#powerSavingMode").text("Thermostat is on");
 
   $("#powerSaveOn").on("click", function(){
@@ -17,4 +15,16 @@ $(document).ready(function() {
     $("#powerSavingMode").text("Thermostat is off");
     console.log(thermostat.maximumTemperature);
   });
+
+  $('#increase').click(function(){
+    thermostat.increaseTemperature();
+      $("#temperature").text(thermostat.getTemperature());
+  });
+
+  $('#decrease').click(function(){
+    thermostat.decreaseTemperature();
+    $("#temperature").text(thermostat.getTemperature());
+  });
+
+
 });
