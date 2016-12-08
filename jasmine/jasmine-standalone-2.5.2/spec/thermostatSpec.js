@@ -59,4 +59,30 @@ describe("Thermostat", function () {
     thermostat.reset();
     expect(thermostat.getTemperature()).toEqual(20);
   });
+
+  describe("energy usage", function () {
+
+    it('displays low usage when temperature is below 18', function () {
+      thermostat.decreaseTemperature();
+      thermostat.decreaseTemperature();
+      thermostat.decreaseTemperature();
+      expect(thermostat.energyUsage()).toEqual('Low usage');
+    });
+
+    it('displays medium usage when temperature is between 18 and 25 degrees', function () {
+      expect(thermostat.energyUsage()).toEqual('Medium usage');
+    });
+
+    it('displays high usage when temperature is above 25 degrees', function () {
+      thermostat.powerSaving('off');
+      for(var i=0;i<=6;i++) {
+        thermostat.increaseTemperature();
+      }
+      console.log(thermostat.getTemperature());
+      expect(thermostat.energyUsage()).toEqual('High usage');
+    });
+
+
+
+  });
 });

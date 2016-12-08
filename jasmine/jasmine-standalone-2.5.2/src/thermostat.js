@@ -1,5 +1,6 @@
 var Thermostat = function () {
-    this.temperature = 20;
+    this.STARTING_TEMPERATURE = 20;
+    this.temperature = this.STARTING_TEMPERATURE ;
     this.maximumTemperature = 25;
     this.MINIMUM_TEMPERATURE = 10;
     this.MAXIMUM_TEMPERATURE_PSM_OFF = 32;
@@ -29,5 +30,11 @@ Thermostat.prototype.powerSaving = function (state) {
 };
 
 Thermostat.prototype.reset = function () {
-  this.temperature = 20;
+  this.temperature = this.STARTING_TEMPERATURE;
+};
+
+Thermostat.prototype.energyUsage = function () {
+  if (this.temperature < 18) return 'Low usage';
+  if (this.temperature >= 18 &&  this.temperature < 25)  return 'Medium usage';
+  if (this.temperature >= 25)  return 'High usage';
 };
