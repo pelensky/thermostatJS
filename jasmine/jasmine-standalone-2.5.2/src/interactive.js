@@ -1,8 +1,4 @@
 $(document).ready(function() {
-
-$.get('http://api.openweathermap.org/data/2.5/weather?q=London&APPID=618b0fb946dbbf8f875877fbac622c50&units=metric', function(data){
-  $('#weather').text(data.main.temp)
-});
   var thermostat = new Thermostat();
 
   $("#powerSaveOn").on("click", function(){
@@ -35,4 +31,15 @@ $.get('http://api.openweathermap.org/data/2.5/weather?q=London&APPID=618b0fb946d
     if (thermostat.energyUsage() === 'Medium usage') $('#usage').css('color', 'black');
     if (thermostat.energyUsage() === 'High usage') $('#usage').css('color', 'red');
   });
+
+  $.get('http://api.openweathermap.org/data/2.5/weather?q=London&APPID=618b0fb946dbbf8f875877fbac622c50&units=metric', function(data){
+    $('#weather').text(data.main.temp)
+  });
+
+  $('#changeCityButton').click(function() {
+      var city = $("#changeCity").val();
+      console.log(city);
+  });
+
+
   });
