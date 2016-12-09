@@ -32,13 +32,15 @@ $(document).ready(function() {
     if (thermostat.energyUsage() === 'High usage') $('#usage').css('color', 'red');
   });
 
-  $.get('http://api.openweathermap.org/data/2.5/weather?q=London&APPID=618b0fb946dbbf8f875877fbac622c50&units=metric', function(data){
-    $('#weather').text(data.main.temp)
-  });
+
 
   $('#changeCityButton').click(function() {
       var city = $("#changeCity").val();
-      console.log(city);
+      $.get("http://api.openweathermap.org/data/2.5/weather?q=" + city + "&APPID=618b0fb946dbbf8f875877fbac622c50&units=metric", function(data){
+        $('#weather-temperature').text(data.main.temp);
+        $('#city').text(data.name);
+        $('#description').text(data.weather[0].description);
+      });
   });
 
 
