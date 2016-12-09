@@ -40,7 +40,7 @@ describe("Thermostat", function () {
         thermostat.increaseTemperature();
         i++;
       }
-      while (i < 6);
+      while (i < 5);
       expect(function() {thermostat.increaseTemperature()}).toThrow("Maximum temperature is 25 degrees. Cannot go above.")
     });
 
@@ -51,8 +51,20 @@ describe("Thermostat", function () {
         thermostat.increaseTemperature();
         i++;
       }
-      while (i < 13);
+      while (i < 12);
       expect(function(){thermostat.increaseTemperature()}).toThrow("Maximum temperature is 32 degrees. Cannot go above.")
+    });
+
+    it('if power saving mode is turned on when the temperature is above 25, the temperature should go down to 25', function(){
+      thermostat.powerSaving('off');
+      var i = 0;
+      do {
+        thermostat.increaseTemperature();
+        i++;
+      }
+      while (i < 10);
+      thermostat.powerSaving("on");
+      expect(thermostat.getTemperature()).toEqual(25);
     });
 
     it('maximum temperature should be 25 by default - power saving mode', function (){

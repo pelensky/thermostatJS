@@ -26,6 +26,8 @@ Thermostat.prototype.decreaseTemperature = function () {
 Thermostat.prototype.powerSaving = function (state) {
   if (state === "on") {
     this.maximumTemperature = this.MAXIMUM_TEMPERATURE_PSM_ON;
+    if (this.temperature > this.MAXIMUM_TEMPERATURE_PSM_ON) {
+      this.temperature = this.MAXIMUM_TEMPERATURE_PSM_ON}
   } else {
     this.maximumTemperature = this.MAXIMUM_TEMPERATURE_PSM_OFF;
   }
