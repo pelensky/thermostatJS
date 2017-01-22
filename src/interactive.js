@@ -45,9 +45,10 @@ $(document).ready(function() {
 
   $('#loadInformation').click(function() {
     $.get("http://localhost:4567/temperature", function(response) {
-        $('#temperature').text(response.temperature) ;
-    })
-  })
+      console.log(response);
+        // $('#temperature').text(response.temperature);
+    });
+  });
 
 
   });
